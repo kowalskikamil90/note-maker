@@ -1,0 +1,2 @@
+This is a first entry. Entries in this file are seperated with 'newline' character.
+And this is a second entry.
