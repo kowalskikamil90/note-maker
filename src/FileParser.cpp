@@ -13,7 +13,11 @@ FileParser::FileParser(const char* filePath)
     while (myfile) {
         std::string line;
         getline(myfile, line);
-        notes.push_back(line);
+        if (line[0] != '#' && line[0] != '\n') {
+            //ignore comments in note file
+            notes.push_back(line);
+        }
+
     }
   }
 }
