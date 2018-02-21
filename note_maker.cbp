@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -26,9 +27,10 @@
 		<Unit filename="README" />
 		<Unit filename="builder.sh" />
 		<Unit filename="cleaner.sh" />
+		<Unit filename="include/FileParser.h" />
 		<Unit filename="note_maker.cbp" />
-		<Unit filename="note_maker.cc" />
-		<Unit filename="note_maker.h" />
+		<Unit filename="src/FileParser.cpp" />
+		<Unit filename="src/note_maker.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

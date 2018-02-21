@@ -2,6 +2,7 @@
 
 SRC=$(find . -name *cpp)
 
+echo "Files to be compiled:"
 echo $SRC
 
 g++ $SRC -o build/app_runner -I include/
