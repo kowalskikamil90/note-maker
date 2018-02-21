@@ -11,7 +11,6 @@ FileParser::FileParser(const char* filePath)
   }
   else {
     while (myfile) {
-            std::cout << "WHILE LOOP DEBUG" << std::endl;
         std::string line;
         getline(myfile, line);
         notes.push_back(line);
@@ -28,7 +27,7 @@ FileParser::~FileParser()
 
 void FileParser::displayNotes()
 {
-    for(std::vector<std::string>::iterator it = notes.begin(); it != notes.end(); ++it) {
+    for(auto it = notes.begin(); it != notes.end(); ++it) {
         std::cout << *it << std::endl;
     }
 }
