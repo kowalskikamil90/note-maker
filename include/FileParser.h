@@ -2,6 +2,7 @@
 #define FILEPARSER_H
 
 #include <fstream> //std::fstream
+#include <vector> //std::vector
 
 #define SUCCESS 1
 #define FAILURE 0
@@ -21,6 +22,7 @@ class FileParser
 
     private:
         std::fstream myfile;
+        std::vector<std::string> notes;
 };
 
 #endif // FILEPARSER_H

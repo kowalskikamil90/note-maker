@@ -31,6 +31,7 @@
 		<Unit filename="note_maker.cbp" />
 		<Unit filename="src/FileParser.cpp" />
 		<Unit filename="src/note_maker.cpp" />
+		<Unit filename="test_notes/notes_1.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

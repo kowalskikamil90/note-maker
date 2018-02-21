@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include <FileParser.h>
 
 int main(int argc, char**argv) {
