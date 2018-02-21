@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-rm build/note_maker.exe
+rm build/*exe

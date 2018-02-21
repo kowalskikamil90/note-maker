@@ -23,7 +23,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="README" />
+		<Unit filename="builder.sh" />
+		<Unit filename="cleaner.sh" />
+		<Unit filename="note_maker.cbp" />
+		<Unit filename="note_maker.cc" />
+		<Unit filename="note_maker.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
