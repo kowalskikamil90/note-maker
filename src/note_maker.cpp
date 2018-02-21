@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
-
-using namespace std;
+#include <FileParser.h>
 
 int main(int argc, char**argv) {
 
@@ -13,7 +12,7 @@ int main(int argc, char**argv) {
 
         std::string notes_file(argv[1]);
         std::cout << "Following note file was chosen::" << notes_file << std::endl;
-
+        FileParser fileParser(notes_file.c_str());
     }
 
     else {
