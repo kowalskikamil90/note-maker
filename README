@@ -1,7 +1,2 @@
-I started this project using Netbeans IDE on windows10.
-
-UPDATE:
-And then I have decided this project is going to be coded using mingw, in bash terminal with VI..
-
-UPDATE:
-Actually, I have decided to continue this project using CodeBlocks.
+This is a tool that enables one to make notes and manage them.
+It may be run in Linux environment.
