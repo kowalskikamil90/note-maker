@@ -23,6 +23,7 @@ class FileParser
     private:
         std::fstream myfile;
         std::vector<std::string> notes;
+        unsigned int nrOfNotes;
 };
 
 #endif // FILEPARSER_H

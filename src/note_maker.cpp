@@ -1,7 +1,7 @@
 #include <iostream>
 #include <FileParser.h>
 
-int main(int argc, char**argv) {
+int main(int argc, char** argv) {
 
     // Prints welcome message...
     std::cout << "Welcome to the note maker..." << std::endl;
@@ -23,13 +23,23 @@ int main(int argc, char**argv) {
 
                 std::cout << "Choose option:" << std::endl;
                 std::cout << "d - display notes" << std::endl;
+                std::cout << "a - add note" << std::endl;
+                std::cout << "r - remove note" << std::endl;
                 std::cout << "q - quit application" << std::endl;
                 std::cin >> userInput;
+                // ignore() is needed because getline() catches the \n char from cin above
+                std::cin.ignore();
 
                 switch (userInput){
 
                     case 'd':
                         fileParser.displayNotes();
+                        break;
+                    case 'a':
+                        fileParser.addNote();
+                        break;
+                    case 'r':
+                        fileParser.removeNote();
                         break;
                     case 'q':
                         stopped = true;
