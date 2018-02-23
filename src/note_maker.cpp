@@ -2,9 +2,7 @@
 #include <FileParser.h>
 
 // Only for debugging purposes, not used in production code.
-#ifdef DEBUG
 #include <trace_debug.h>
-#endif
 
 int main(int argc, char** argv) {
 

@@ -3,9 +3,7 @@
 #include <string>
 
 // Only for debugging purposes, not used in production code.
-#ifdef DEBUG
 #include <trace_debug.h>
-#endif
 
 //This is max size of the note that the user may enter
 #define INPUT_SIZE 200
@@ -15,7 +13,7 @@ FileParser::FileParser(const char* filePath)
   myfile.open(filePath, std::fstream::in | std::fstream::out | std::fstream::app);
   if (!myfile.is_open())
   {
-    DEBUG_ERROR(string("Problems with opening the file: ") + filePath);
+    DEBUG_ERROR(std::string("Problems with opening the file: ") + filePath);
   }
   else {
     nrOfNotes = 0;
@@ -64,9 +62,9 @@ void FileParser::addNote()
         // update the notes file
         if (myfile.is_open()) {
             myfile << line.c_str() << std::endl;
-            DEBUG_INFO(string("Appending to notes file") + line);
+            DEBUG_INFO(std::string("Appending to notes file") + line);
         } else {
-            DEBUG_ERROR(string("Myfile was closed"));
+            DEBUG_ERROR(std::string("Myfile was closed"));
         }
     }
 }
