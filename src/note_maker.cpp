@@ -1,10 +1,9 @@
 #include <iostream>
 #include <FileParser.h>
+#include <user_notification.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
-
-static void printWelcomeMessage();
 
 int main(int argc, char** argv) {
 
@@ -13,7 +12,9 @@ int main(int argc, char** argv) {
     if (argc > 1) {
 
         std::string notes_file(argv[1]);
-        std::cout << "Following note file was chosen::" << notes_file << std::endl;
+
+        notifyUserLogInfo(std::string("Following note file was chosen: ") + notes_file);
+
         FileParser fileParser(notes_file.c_str());
         if (fileParser.status() == SUCCESS) {
 
@@ -24,11 +25,12 @@ int main(int argc, char** argv) {
 
             while (!stopped) {
 
-                std::cout << "Choose option:" << std::endl;
-                std::cout << "d - display notes" << std::endl;
-                std::cout << "a - add note" << std::endl;
-                std::cout << "r - remove note" << std::endl;
-                std::cout << "q - quit application" << std::endl;
+                displayToUser("Choose option:");
+                displayToUser("d - display notes");
+                displayToUser("a - add note");
+                displayToUser("r - remove note");
+                displayToUser("q - quit application");
+
                 std::cin >> userInput;
                 // ignore() is needed because getline() catches the \n char from cin above
                 std::cin.ignore();
@@ -54,21 +56,9 @@ int main(int argc, char** argv) {
 
     else {
 
-        std::cout << "Please specify the NOTES file when running the program." << std::endl;
-        std::cout << "E.g: " << argv[0] << " <notes_file_path> " << std::endl;
-        std::cout << "Exitting the application... " << std::endl;
-
+        displayToUser("Please specify the NOTES file when running the program.");
+        displayToUser("Exitting the application... ");
     }
 
     return 0;
-}
-
-static void printWelcomeMessage()
-{
-    // Prints welcome message...
-    std::cout << "###############################" << std::endl;
-    std::cout << "#  Welcome to the note maker  #" << std::endl;
-    std::cout << "#  author: Kamil Kowalski     #" << std::endl;
-    std::cout << "#  version: 1.0               #" << std::endl;
-    std::cout << "###############################" << std::endl << std::endl;
 }

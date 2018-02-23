@@ -1,6 +1,7 @@
 #include <FileParser.h>
 #include <iostream>
 #include <string>
+#include <user_notification.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
@@ -38,9 +39,11 @@ FileParser::~FileParser()
 
 void FileParser::displayNotes()
 {
+    std::cout << "#################  LIST OF NOTES  ###################" << std::endl;
     for(auto it = notes.begin(); it != notes.end(); ++it) {
         std::cout << *it << std::endl;
     }
+    std::cout << "#####################################################" << std::endl;
 }
 
 void FileParser::addNote()
@@ -59,12 +62,14 @@ void FileParser::addNote()
         notes.push_back(line);
         nrOfNotes++;
 
+        notifyUserLogInfo(std::string("The note has been added."));
+
         // update the notes file
         if (myfile.is_open()) {
             myfile << line.c_str() << std::endl;
-            DEBUG_INFO(std::string("Appending to notes file") + line);
+            DEBUG_INFO(std::string("Appending to notes file: ") + line);
         } else {
-            DEBUG_ERROR(std::string("Myfile was closed"));
+            DEBUG_ERROR(std::string("myfile was closed"));
         }
     }
 }
