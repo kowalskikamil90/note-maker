@@ -1,6 +1,9 @@
 #include <iostream>
 #include <FileParser.h>
 
+// Only for debugging purposes, not used in production code.
+#include <trace_debug.h>
+
 int main(int argc, char** argv) {
 
     // Prints welcome message...
