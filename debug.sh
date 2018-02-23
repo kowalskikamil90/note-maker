@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Use this scriptinstead of builder.sh when you want to include
+#debug macros DEBUG_ERROR and DEBUG_INFO into the binary.
+#This is to be used only for debugging purposes.
+
 SRC=$(find . -name *cpp)
 
 echo "Files to be compiled:"
