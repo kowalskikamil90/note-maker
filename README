@@ -1,2 +1,13 @@
 This is a tool that enables one to make notes and manage them.
 It may be run in Linux environment.
+
+To build the project run in the top directory:
+./builder.sh
+
+To build the debug release run in the top directory:
+./debug.sh
+
+The executable is stored in build/ dir.
+Run the program for e.g. in the following way:
+./app_runner.exe ../test_notes/notes_1.txt
+..where the notes_1.txt is the file that you want to store notes in.
