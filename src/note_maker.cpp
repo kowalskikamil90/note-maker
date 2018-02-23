@@ -1,6 +1,7 @@
 #include <iostream>
 #include <FileParser.h>
 #include <user_notification.h>
+#include <user_input.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
@@ -21,7 +22,7 @@ int main(int argc, char** argv) {
             //This is main loop in the program
             //The user decides what he/she wants to do.
             bool stopped = false;
-            char userInput = 'z';
+            char userInput = '#';
 
             while (!stopped) {
 
@@ -31,9 +32,7 @@ int main(int argc, char** argv) {
                 displayToUser("r - remove note");
                 displayToUser("q - quit application");
 
-                std::cin >> userInput;
-                // ignore() is needed because getline() catches the \n char from cin above
-                std::cin.ignore();
+                getCharFromUser(userInput);
 
                 switch (userInput){
 

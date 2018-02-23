@@ -30,12 +30,18 @@
 		<Unit filename="debug.sh" />
 		<Unit filename="include/FileParser.h" />
 		<Unit filename="include/trace_debug.h" />
+		<Unit filename="include/user_input.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="include/user_notification.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="note_maker.cbp" />
 		<Unit filename="src/FileParser.cpp" />
 		<Unit filename="src/note_maker.cpp" />
+		<Unit filename="src/user_input.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/user_notification.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

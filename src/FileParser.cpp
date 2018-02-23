@@ -2,12 +2,10 @@
 #include <iostream>
 #include <string>
 #include <user_notification.h>
+#include <user_input.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
-
-//This is max size of the note that the user may enter
-#define INPUT_SIZE 200
 
 FileParser::FileParser(const char* filePath)
 {
@@ -48,10 +46,8 @@ void FileParser::displayNotes()
 
 void FileParser::addNote()
 {
-    //update the file
-    char input[INPUT_SIZE];
-    std::cin.getline(input, INPUT_SIZE);
 
+    char* input = getLineFromUser();
     std::string line(input);
     //add new line at the end of the string
     line += "\n";
