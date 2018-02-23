@@ -4,11 +4,11 @@
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
 
+static void printWelcomeMessage();
+
 int main(int argc, char** argv) {
 
-    // Prints welcome message...
-    std::cout << "Welcome to the note maker..." << std::endl;
-    std::cout << "author: Kamil Kowalski" << std::endl << std::endl;
+    printWelcomeMessage();
 
     if (argc > 1) {
 
@@ -61,4 +61,14 @@ int main(int argc, char** argv) {
     }
 
     return 0;
+}
+
+static void printWelcomeMessage()
+{
+    // Prints welcome message...
+    std::cout << "###############################" << std::endl;
+    std::cout << "#  Welcome to the note maker  #" << std::endl;
+    std::cout << "#  author: Kamil Kowalski     #" << std::endl;
+    std::cout << "#  version: 1.0               #" << std::endl;
+    std::cout << "###############################" << std::endl << std::endl;
 }
