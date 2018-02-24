@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SRC=$(find . -name *cpp)
+SRC=$(find src/ -name *cpp)
 
 echo "Files to be compiled:"
 echo $SRC

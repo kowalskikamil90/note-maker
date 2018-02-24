@@ -4,7 +4,7 @@
 #debug macros DEBUG_ERROR and DEBUG_INFO into the binary.
 #This is to be used only for debugging purposes.
 
-SRC=$(find . -name *cpp)
+SRC=$(find src/ -name *cpp)
 
 echo "Files to be compiled:"
 echo $SRC

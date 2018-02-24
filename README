@@ -1,5 +1,5 @@
 This is a tool that enables one to make notes and manage them.
-It may be run in Linux environment.
+It may be compiled and run in both Linux and Windows environment.
 
 To build the project run in the top directory:
 ./builder.sh
