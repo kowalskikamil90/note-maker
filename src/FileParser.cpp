@@ -77,6 +77,12 @@ void FileParser::addNote()
     //ignore comments & only new lines
     if (line[0] != '#' && line[0] != '\n') {
 
+        // This is needed in order to remove trailing newline char.
+        // This workaround makes the output looks nice.
+        std::size_t found = line.find('\n');
+        if ( found != std::string::npos)
+            line.erase(found);
+
         // update notes vector
         notes.push_back(line);
         nrOfNotes++;
@@ -84,11 +90,12 @@ void FileParser::addNote()
 
         DEBUG_INFO(std::string("Pushed note to the vector"));
         DEBUG_INFO_2(std::string("Number of NOTES: "), nrOfNotes);
+        DEBUG_INFO_2(std::string("\'notes\' vector size: "), notes.size());
 
         // update the notes file
         if (myfile.is_open()) {
 
-            myfile << line.c_str() << std::endl;
+            myfile << line.c_str();
             DEBUG_INFO(std::string("Appending to notes file: ") + line);
 
         } else {
