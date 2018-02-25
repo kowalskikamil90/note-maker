@@ -16,15 +16,15 @@ g++ -DDEBUG ......
 
 #ifdef DEBUG
 
-    #define DEBUG_ERROR(str) (std::cout << "### DEBUG ERROR: " << (str) << std::endl);
-    #define DEBUG_INFO(str) (std::cout << "### DEBUG INFO: " << (str) << std::endl);
-    #define DEBUG_INFO_2(op1, op2) (std::cout << "### DEBUG INFO: " << (op1) << (op2) << std::endl);
+    #define DEBUG_ERROR(str) (std::cout << "### DEBUG ERROR: " << (str) << std::endl)
+    #define DEBUG_INFO(str) (std::cout << "### DEBUG INFO: " << (str) << std::endl)
+    #define DEBUG_INFO_2(op1, op2) (std::cout << "### DEBUG INFO: " << (op1) << (op2) << std::endl)
 
 #else
 
-    #define DEBUG_ERROR(str) ;
-    #define DEBUG_INFO(str) ;
-    #define DEBUG_INFO_2(op1, op2) ;
+    #define DEBUG_ERROR(str)
+    #define DEBUG_INFO(str)
+    #define DEBUG_INFO_2(op1, op2)
 
 #endif // DEBUG
 

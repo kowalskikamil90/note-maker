@@ -5,8 +5,10 @@
 
 void printWelcomeMessage();
 
-void notifyUserLogInfo(std::string message);
+void notifyUserInfo(std::string message);
 
 void displayToUser(std::string message);
+
+void displayToUserNewLine(std::string message);
 
 #endif // USER_NOTIFICATION_H_INCLUDED

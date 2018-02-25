@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 
         std::string notes_file(argv[1]);
 
-        notifyUserLogInfo(std::string("Following note file was chosen: ") + notes_file);
+        notifyUserInfo(std::string("Following note file was chosen: ") + notes_file);
 
         FileParser fileParser(notes_file.c_str());
         if (fileParser.status() == SUCCESS) {
@@ -26,11 +26,13 @@ int main(int argc, char** argv) {
 
             while (!stopped) {
 
-                displayToUser("Choose option:");
-                displayToUser("d - display notes");
-                displayToUser("a - add note");
-                displayToUser("r - remove note");
-                displayToUser("q - quit application");
+                displayToUserNewLine("");
+                displayToUserNewLine("d - display notes");
+                displayToUserNewLine("a - add note");
+                displayToUserNewLine("r - remove note");
+                displayToUserNewLine("q - quit application");
+                displayToUserNewLine("");
+                displayToUser("Choose option : ");
 
                 getCharFromUser(userInput);
 
@@ -47,6 +49,9 @@ int main(int argc, char** argv) {
                         break;
                     case 'q':
                         stopped = true;
+                        break;
+                    default:
+                        notifyUserInfo(std::string("Invalid option was chosen."));
 
                 }
             }
@@ -55,8 +60,8 @@ int main(int argc, char** argv) {
 
     else {
 
-        displayToUser("Please specify the NOTES file when running the program.");
-        displayToUser("Exitting the application... ");
+        displayToUserNewLine("Please specify the NOTES file when running the program.");
+        displayToUserNewLine("Exitting the application... ");
     }
 
     return 0;

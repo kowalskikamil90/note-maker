@@ -11,12 +11,17 @@ void printWelcomeMessage()
     std::cout << "###############################" << std::endl << std::endl;
 }
 
-void notifyUserLogInfo(std::string message)
+void notifyUserInfo(std::string message)
 {
-    std::cout << "LOG_INFO: " << message << std::endl;
+    std::cout << "<<INFO>>: " << message << std::endl;
+}
+
+void displayToUserNewLine(std::string message)
+{
+    std::cout << "    >> " << message << std::endl;
 }
 
 void displayToUser(std::string message)
 {
-    std::cout << "    # " << message << std::endl;
+    std::cout << "    >> " << message;
 }

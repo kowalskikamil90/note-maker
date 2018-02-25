@@ -79,7 +79,7 @@ void FileParser::addNote()
         // update notes vector
         notes.push_back(line);
         nrOfNotes++;
-        notifyUserLogInfo(std::string("The note has been added."));
+        notifyUserInfo(std::string("The note has been added."));
 
         DEBUG_INFO(std::string("Pushed note to the vector"));
         DEBUG_INFO_2(std::string("Number of NOTES: "), nrOfNotes);
