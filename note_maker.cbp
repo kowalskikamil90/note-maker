@@ -28,6 +28,7 @@
 		<Unit filename="builder.sh" />
 		<Unit filename="cleaner.sh" />
 		<Unit filename="debug.sh" />
+		<Unit filename="include/DateAndTimeStampler.h" />
 		<Unit filename="include/FileParser.h" />
 		<Unit filename="include/trace_debug.h" />
 		<Unit filename="include/user_input.h">
@@ -37,6 +38,7 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="note_maker.cbp" />
+		<Unit filename="src/DateAndTimeStampler.cpp" />
 		<Unit filename="src/FileParser.cpp" />
 		<Unit filename="src/note_maker.cpp" />
 		<Unit filename="src/user_input.cpp">

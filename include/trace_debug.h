@@ -1,9 +1,6 @@
 #ifndef TRACE_DEBUG_INFO_H
 #define TRACE_DEBUG_INFO_H
 
-#include <iostream>
-#include <string>
-
 /*
 This header is only for debugging purposes.
 It should not be used in production code.
@@ -15,6 +12,9 @@ g++ -DDEBUG ......
 */
 
 #ifdef DEBUG
+
+    #include <iostream>
+    #include <string>
 
     #define DEBUG_ERROR(str) (std::cout << "### DEBUG ERROR: " << (str) << std::endl)
     #define DEBUG_INFO(str) (std::cout << "### DEBUG INFO: " << (str) << std::endl)

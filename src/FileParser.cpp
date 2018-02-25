@@ -70,21 +70,43 @@ void FileParser::addNote()
 
     char* input = getLineFromUser();
     std::string line(input);
+    bool noCommentNoEmpty = true;
 
-    //add new line at the end of the string
-    line += "\n";
+    if (line[0] == '#' || line[0] == '\n') {
+        DEBUG_INFO(std::string("Comment or only newline char"));
+        noCommentNoEmpty = false;
+    }
 
-    //ignore comments & only new lines
-    if (line[0] != '#' && line[0] != '\n') {
+    //Get current date and time stamp
+    std::string dateAndTime(stampler.giveCurrentDateAndTimeStamp());
+
+    //Prepend the note number
+    //Used <stdio> due to problems with std::to_string()
+
+    char numStr[16]; // string which will contain the number
+    sprintf( numStr, "%d", nrOfNotes+1 );
+
+    //Add date and time stamp and new line at the end of the string
+    std::string stampedLine = std::string(numStr) +
+                              ". " +
+                              std::string("Added on ") +
+                              dateAndTime +
+                              ": " +
+                              line + "\n";
+
+    DEBUG_INFO_2(std::string("stampedLine"), stampedLine);
+
+    //Ignore lines with comments & only empty lines
+    if ( noCommentNoEmpty) {
 
         // This is needed in order to remove trailing newline char.
         // This workaround makes the output looks nice.
-        std::size_t found = line.find('\n');
+        std::size_t found = stampedLine.find('\n');
         if ( found != std::string::npos)
-            line.erase(found);
+            stampedLine.erase(found);
 
         // update notes vector
-        notes.push_back(line);
+        notes.push_back(stampedLine);
         nrOfNotes++;
         notifyUserInfo(std::string("The note has been added."));
 
@@ -95,8 +117,8 @@ void FileParser::addNote()
         // update the notes file
         if (myfile.is_open()) {
 
-            myfile << line.c_str();
-            DEBUG_INFO(std::string("Appending to notes file: ") + line);
+            myfile << stampedLine.c_str();
+            DEBUG_INFO(std::string("Appending to notes file: ") + stampedLine);
 
         } else {
 

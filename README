@@ -9,5 +9,5 @@ To build the debug release run in the top directory:
 
 The executable is stored in build/ dir.
 Run the program for e.g. in the following way:
-./app_runner.exe ../test_notes/notes_1.txt
+./app_runner.exe ../test_notes/test_notes_1.txt
 ..where the notes_1.txt is the file that you want to store notes in.

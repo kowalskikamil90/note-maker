@@ -3,6 +3,7 @@
 
 #include <fstream> //std::fstream
 #include <vector> //std::vector
+#include <DateAndTimeStampler.h>
 
 #define SUCCESS 1
 #define FAILURE 0
@@ -24,6 +25,7 @@ class FileParser
         std::fstream myfile;
         std::vector<std::string> notes;
         unsigned int nrOfNotes;
+        DateAndTimeStampler stampler;
 };
 
 #endif // FILEPARSER_H
