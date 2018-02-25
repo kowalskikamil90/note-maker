@@ -2,11 +2,23 @@
 #include <FileParser.h>
 #include <user_notification.h>
 #include <user_input.h>
+#include <platform.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
 
 int main(int argc, char** argv) {
+
+    if (PLATFORM == "Windows")
+    {
+        DEBUG_INFO(std::string("PLATFORM: Windows"));
+    } else if (PLATFORM == "Unix")
+    {
+        DEBUG_INFO(std::string("PLATFORM: Unix"));
+    } else
+    {
+        DEBUG_INFO(std::string("PLATFORM: Unknown"));
+    }
 
     printWelcomeMessage();
 

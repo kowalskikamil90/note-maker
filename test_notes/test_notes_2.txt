@@ -1,0 +1,1 @@
+1. Added on Sun Feb 25 15:23:51 2018: Make sure toimplement removeNote functionality2. Added on Sun Feb 25 15:24:19 2018: Makesure to continue with the learncpp.com tutorial3. Added on Sun Feb 25 15:24:51 2018: Makesureto eat supper before leaving

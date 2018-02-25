@@ -30,6 +30,9 @@
 		<Unit filename="debug.sh" />
 		<Unit filename="include/DateAndTimeStampler.h" />
 		<Unit filename="include/FileParser.h" />
+		<Unit filename="include/platform.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="include/trace_debug.h" />
 		<Unit filename="include/user_input.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -47,7 +50,6 @@
 		<Unit filename="src/user_notification.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="test_notes/notes_1.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

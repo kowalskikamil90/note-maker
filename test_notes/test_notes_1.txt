@@ -3,3 +3,4 @@
 3. Added on Sun Feb 25 11:52:47 2018: Remember to update github.
 4. Added on Sun Feb 25 11:54:02 2018: Remember to do shopping in Bonarka.
 5. Added on Sun Feb 25 11:54:21 2018: Prepare for tomorrow.
+6. Added on Sun Feb 25 15:21:53 2018: Make sure totake tomething to eat

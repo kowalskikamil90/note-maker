@@ -3,6 +3,7 @@
 #include <string>
 #include <user_notification.h>
 #include <user_input.h>
+#include <platform.h>
 
 // Only for debugging purposes, not used in production code.
 #include <trace_debug.h>
@@ -92,7 +93,7 @@ void FileParser::addNote()
                               std::string("Added on ") +
                               dateAndTime +
                               ": " +
-                              line + "\n";
+                              line;
 
     DEBUG_INFO_2(std::string("stampedLine"), stampedLine);
 
@@ -102,6 +103,12 @@ void FileParser::addNote()
         // This is needed in order to remove trailing newline char.
         // This workaround makes the output looks nice.
         std::size_t found = stampedLine.find('\n');
+        if ( found != std::string::npos)
+            stampedLine.erase(found);
+
+        // This is needed in order to remove trailing carriage return char.
+        // This workaround makes the output looks nice.
+        found = stampedLine.find('\r');
         if ( found != std::string::npos)
             stampedLine.erase(found);
 
@@ -116,7 +123,7 @@ void FileParser::addNote()
 
         // update the notes file
         if (myfile.is_open()) {
-
+            stampedLine += NEW_LINE;
             myfile << stampedLine.c_str();
             DEBUG_INFO(std::string("Appending to notes file: ") + stampedLine);
 
