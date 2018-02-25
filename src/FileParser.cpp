@@ -57,11 +57,12 @@ FileParser::~FileParser()
 
 void FileParser::displayNotes()
 {
-    std::cout << "#################  LIST OF NOTES  ###################" << std::endl;
+    std::string title("LIST OF NOTES");
+    displayTitleWithBorder(title);
     for(auto it = notes.begin(); it != notes.end(); ++it) {
         std::cout << *it << std::endl;
     }
-    std::cout << "#####################################################" << std::endl;
+    displayBorderForTitleWithLength(title.size());
 }
 
 void FileParser::addNote()

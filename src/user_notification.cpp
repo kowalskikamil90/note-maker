@@ -25,3 +25,18 @@ void displayToUser(std::string message)
 {
     std::cout << "    >> " << message;
 }
+
+void displayTitleWithBorder(std::string title)
+{
+    std::cout << "################# " << title << " #################";
+    std::cout << std::endl;
+}
+
+void displayBorderForTitleWithLength(unsigned int size)
+{
+    for (unsigned int i = 0 ; i < 36+size ; i++)
+    {
+        std::cout << "#";
+    }
+    std::cout << std::endl;
+}

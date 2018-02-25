@@ -11,4 +11,8 @@ void displayToUser(std::string message);
 
 void displayToUserNewLine(std::string message);
 
+void displayTitleWithBorder(std::string title);
+
+void displayBorderForTitleWithLength(unsigned int size);
+
 #endif // USER_NOTIFICATION_H_INCLUDED
