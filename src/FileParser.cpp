@@ -60,7 +60,7 @@ void FileParser::displayNotes()
     std::string title("LIST OF NOTES");
     displayTitleWithBorder(title);
     for(auto it = notes.begin(); it != notes.end(); ++it) {
-        std::cout << *it << std::endl;
+        displayDataToUserNewLine(*it);
     }
     displayBorderForTitleWithLength(title.size());
 }

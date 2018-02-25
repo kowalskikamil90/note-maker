@@ -26,6 +26,11 @@ void displayToUser(std::string message)
     std::cout << "    >> " << message;
 }
 
+void displayDataToUserNewLine(std::string message)
+{
+    std::cout << "# " << message << std::endl;
+}
+
 void displayTitleWithBorder(std::string title)
 {
     std::cout << "################# " << title << " #################";
