@@ -92,7 +92,7 @@ void FileParser::addNote()
                               std::string("Added on ") +
                               dateAndTime +
                               ": " +
-                              line + "\n";
+                              line;
 
     DEBUG_INFO_2(std::string("stampedLine"), stampedLine);
 
@@ -116,6 +116,8 @@ void FileParser::addNote()
 
         // update the notes file
         if (myfile.is_open()) {
+
+        	stampedLine += "\n";
 
             myfile << stampedLine.c_str();
             DEBUG_INFO(std::string("Appending to notes file: ") + stampedLine);
