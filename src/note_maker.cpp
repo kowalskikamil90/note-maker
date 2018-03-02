@@ -3,7 +3,10 @@
 #include <user_notification.h>
 #include <user_input.h>
 
-// Only for debugging purposes, not used in production code.
+/* Only for debugging purposes, not used in production code.
+ * When compiled in normal mode (not debug) all debug macros
+ * are resolved to an empty instruction, therefore having no
+ * effect on the code itself. */
 #include <trace_debug.h>
 
 int main(int argc, char** argv) {

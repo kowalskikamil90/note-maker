@@ -15,13 +15,14 @@ class FileParser
         virtual ~FileParser();
 
         void displayNotes();
-        void addNote();
+        bool addNote();
         void removeNote();
         bool status();
 
     protected:
 
     private:
+        std::string filePath;
         std::fstream myfile;
         std::vector<std::string> notes;
         unsigned int nrOfNotes;
