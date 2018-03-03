@@ -1,5 +1,6 @@
-1. Added on Sun Feb 25 11:51:48 2018: Need to go back to Krakow today.
-2. Added on Sun Feb 25 11:52:25 2018: Remember to talk to line manager on Monday.
-3. Added on Sun Feb 25 11:52:47 2018: Remember to update github.
-4. Added on Sun Feb 25 11:54:02 2018: Remember to do shopping in Bonarka.
-5. Added on Sun Feb 25 11:54:21 2018: Prepare for tomorrow.
+Added on Sun Feb 25 11:51:48 2018: Need to go back to Krakow today.
+Added on Sun Feb 25 11:52:25 2018: Remember to talk to line manager on Monday.
+Added on Sun Feb 25 11:52:47 2018: Remember to update github.
+Added on Sun Feb 25 11:54:02 2018: Remember to do shopping in Bonarka.
+Added on Sun Feb 25 11:54:21 2018: Prepare for tomorrow.
+Added on Sat Mar 03 10:41:21 2018: Some random note.

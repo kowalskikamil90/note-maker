@@ -45,8 +45,13 @@ int main(int argc, char** argv) {
                         fileParser.displayNotes();
                         break;
                     case 'a':
-                        fileParser.addNote();
-                        break;
+
+                        if (fileParser.addNote() == SUCCESS) {
+                            break;
+                        } else {
+                            return 1;
+                        }
+
                     case 'r':
                         fileParser.removeNote();
                         break;

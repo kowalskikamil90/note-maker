@@ -37,6 +37,12 @@ void displayTitleWithBorder(std::string title)
     std::cout << std::endl;
 }
 
+void displayListNumber(unsigned number)
+{
+    std::cout << number;
+    std::cout << ". ";
+}
+
 void displayBorderForTitleWithLength(unsigned int size)
 {
     for (unsigned int i = 0 ; i < 36+size ; i++)

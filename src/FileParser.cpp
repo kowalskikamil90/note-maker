@@ -1,4 +1,5 @@
 #include <FileParser.h>
+#include <Note.h>
 #include <iostream>
 #include <string>
 #include <user_notification.h>
@@ -28,13 +29,24 @@ FileParser::FileParser(const char* filePath)
         getline(myfile, line);
 
         //Check if the start of string is either # or newline
-        if (*line.begin() == '#' || line.empty()) {
+        if (*line.begin() == '#') {
 
-            DEBUG_INFO(std::string("Comment or empty line"));
+            DEBUG_INFO(std::string("Read a comment"));
+
+        }
+        else if (line.empty()) {
+
+            DEBUG_INFO(std::string("Read empty line"));
 
         }
         else {
-            notes.push_back(line);
+
+            /* If the note is read from the file it means it already has
+             * a timestamp, so we do not need to add it while constructing
+             * the Note object. */
+            bool readFromFile = true;
+            Note aNote(line, readFromFile);
+            notes.push_back(aNote);
             nrOfNotes++;
 
             DEBUG_INFO(std::string("Pushed note to the vector"));
@@ -63,8 +75,10 @@ void FileParser::displayNotes()
 {
     std::string title("LIST OF NOTES");
     displayTitleWithBorder(title);
+    unsigned noteNum = 1;
     for(auto it = notes.begin(); it != notes.end(); ++it) {
-        displayDataToUserNewLine(*it);
+        displayListNumber(noteNum++);
+        displayDataToUserNewLine(it->toString());
     }
     displayBorderForTitleWithLength(title.size());
 }
@@ -75,36 +89,14 @@ bool FileParser::addNote()
     char* input = getLineFromUser();
     std::string line(input);
 
-    //Get current date and time stamp
-    std::string dateAndTime(stampler.giveCurrentDateAndTimeStamp());
-
-    //Prepend the note number
-    //Used <stdio> due to problems with std::to_string()
-
-    char numStr[16]; // string which will contain the number
-    sprintf( numStr, "%d", nrOfNotes+1 );
-
-    //Add date and time stamp and new line at the end of the string
-    std::string stampedLine = std::string(numStr) +
-                              ". " +
-                              std::string("Added on ") +
-                              dateAndTime +
-                              ": " +
-                              line;
-
-    DEBUG_INFO_2(std::string("stampedLine: "), stampedLine);
-
-    // This is needed in order to remove trailing newline char.
-    // This workaround makes the output looks nice.
-    std::size_t found = stampedLine.find('\n');
-    if ( found != std::string::npos)
-    {
-        stampedLine.erase(found);
-        DEBUG_INFO(std::string("Found newline and removed it..."));
-    }
+    /* If the note is read from the user it means it does not have
+     * a timestamp, so we need to add it while constructing
+     * the Note object. */
+    bool readFromFile = false;
+    Note aNote(line, readFromFile);
 
     // update notes vector
-    notes.push_back(stampedLine);
+    notes.push_back(aNote);
     nrOfNotes++;
     notifyUserInfo(std::string("The note has been added."));
 
@@ -127,7 +119,7 @@ bool FileParser::addNote()
         {
 
             //*it += "\n";
-            myfile << it->c_str();
+            myfile << it->toString().c_str();
             myfile << '\n';
             DEBUG_INFO(std::string("Appending to notes file..."));
 
