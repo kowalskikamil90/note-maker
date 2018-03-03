@@ -19,8 +19,6 @@ class FileParser
         bool removeNote();
         bool status();
 
-    protected:
-
     private:
         std::string filePath;
         std::fstream myfile;

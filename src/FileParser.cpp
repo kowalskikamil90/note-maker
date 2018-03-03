@@ -1,7 +1,7 @@
-#include <FileParser.h>
-#include <Note.h>
 #include <iostream>
 #include <string>
+#include <FileParser.h>
+#include <Note.h>
 #include <user_notification.h>
 #include <user_input.h>
 
@@ -14,12 +14,13 @@
 FileParser::FileParser(const char* filePath)
 {
   this->filePath += filePath;
-  myfile.open(filePath, std::fstream::in | std::fstream::out | std::fstream::app);
+  myfile.open(filePath, std::fstream::in | std::fstream::out);
   if (!myfile.is_open())
   {
     DEBUG_ERROR(std::string("Problems with opening the file: ") + filePath);
   }
-  else {
+  else
+  {
 
     DEBUG_INFO(std::string("File opened successfully: ") + filePath);
 
@@ -42,7 +43,7 @@ FileParser::FileParser(const char* filePath)
         else {
 
             /* If the note is read from the file it means it already has
-             * a timestamp, so we do not need to add it while constructing
+             * a time stamp, so we do not need to add it while constructing
              * the Note object. */
             bool readFromFile = true;
             Note aNote(line, readFromFile);
@@ -69,6 +70,7 @@ FileParser::~FileParser()
 
     notes.clear();
     nrOfNotes = 0;
+    filePath = "";
 }
 
 void FileParser::displayNotes()
@@ -106,9 +108,9 @@ bool FileParser::addNote()
 
     if (myfile.is_open())
     {
-        /* Need to close the file and open it in trunc mode */
+        /* Need to open the file in trunc mode */
         myfile.close();
-        myfile.open(filePath, std::fstream::in | std::fstream::out | std::fstream::trunc);
+        myfile.open(filePath, std::fstream::out | std::fstream::trunc);
         if (!myfile.is_open())
         {
             DEBUG_ERROR(std::string("Problems with opening the file in trunc mode: ") + filePath);
@@ -118,7 +120,6 @@ bool FileParser::addNote()
         for(auto it = notes.begin(); it != notes.end(); ++it)
         {
 
-            //*it += "\n";
             myfile << it->toString().c_str();
             myfile << '\n';
             DEBUG_INFO(std::string("Appending to notes file..."));
@@ -140,9 +141,9 @@ bool FileParser::removeNote()
 {
     if (myfile.is_open())
     {
-        /* Need to close the file and open it in trunc mode */
+        /* Need to open the file in trunc mode */
         myfile.close();
-        myfile.open(filePath, std::fstream::in | std::fstream::out | std::fstream::trunc);
+        myfile.open(filePath, std::fstream::out | std::fstream::trunc);
         if (!myfile.is_open())
         {
             DEBUG_ERROR(std::string("Problems with opening the file in trunc mode: ") + filePath);

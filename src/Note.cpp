@@ -18,7 +18,8 @@ Note::Note(std::string content, bool readFromFile)
 
         //TODO: extract all necessary fields
 
-    } else // In this case we need to add a time stamp to the note.
+    }
+    else // In this case we need to add a time stamp to the note.
     {
         DEBUG_INFO(std::string("Creating the Note object. Read form user: "));
         //Get current date and time stamp
@@ -33,14 +34,15 @@ Note::Note(std::string content, bool readFromFile)
 
         //Add date and time stamp and new line at the end of the string
         fullNote = std::string("Added on ") +
-                           dateAndTimeStamp +
-                                       ": " +
-                                     content;
+                               dateAndTimeStamp +
+                               ": " +
+                               content;
 
         DEBUG_INFO_2(std::string("fullNote: "), fullNote);
 
-        // This is needed in order to remove trailing newline char.
-        // This workaround makes the output looks nice.
+        /* This is to make sure to remove trailing newline char.
+         * This way, we are certain that each line is not ended
+         * with the end line char. */
         std::size_t found = fullNote.find('\n');
         if ( found != std::string::npos)
         {

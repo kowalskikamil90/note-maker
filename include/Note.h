@@ -15,7 +15,6 @@ class Note
         std::string dateAndTimeStamp;
         std::string content;
         std::string fullNote;
-        unsigned noteNumber;
 
 };
 
