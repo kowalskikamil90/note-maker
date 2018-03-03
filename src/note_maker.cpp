@@ -53,8 +53,13 @@ int main(int argc, char** argv) {
                         }
 
                     case 'r':
-                        fileParser.removeNote();
-                        break;
+
+                        if (fileParser.removeNote() == SUCCESS) {
+                            break;
+                        } else {
+                            return 1;
+                        }
+
                     case 'q':
                         stopped = true;
                         break;

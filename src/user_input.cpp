@@ -8,7 +8,14 @@ static char input[INPUT_SIZE];
 void getCharFromUser(char& c)
 {
     std::cin >> c;
-    // ignore() is needed because getline() catches the \n char from cin above
+    // ignore() is needed because getline() catches the \n char from cin
+    std::cin.ignore();
+}
+
+void getNumFromUser(unsigned& num)
+{
+    std::cin >> num;
+    // ignore() is needed because getline() catches the \n char from cin
     std::cin.ignore();
 }
 

@@ -16,7 +16,7 @@ class FileParser
 
         void displayNotes();
         bool addNote();
-        void removeNote();
+        bool removeNote();
         bool status();
 
     protected:

@@ -136,9 +136,53 @@ bool FileParser::addNote()
      return SUCCESS;
 }
 
-void FileParser::removeNote()
+bool FileParser::removeNote()
 {
+    if (myfile.is_open())
+    {
+        /* Need to close the file and open it in trunc mode */
+        myfile.close();
+        myfile.open(filePath, std::fstream::in | std::fstream::out | std::fstream::trunc);
+        if (!myfile.is_open())
+        {
+            DEBUG_ERROR(std::string("Problems with opening the file in trunc mode: ") + filePath);
+            return FAILURE;
+        }
 
+        // Get the number of the note to be removed
+        unsigned num;
+        getNumFromUser(num);
+
+        if (num <= nrOfNotes)
+        {
+            // Remove the note from the vector
+            notes.erase(notes.begin() + num - 1);
+            nrOfNotes--;
+            DEBUG_INFO(std::string("The note has been removed from the notes vector"));
+
+            for(auto it = notes.begin(); it != notes.end(); ++it)
+            {
+
+                myfile << it->toString().c_str();
+                myfile << '\n';
+                DEBUG_INFO(std::string("Appending to notes file..."));
+
+            }
+
+        }
+        else {
+            notifyUserInfo(std::string("The number of notes exceeded!"));
+        }
+
+        return SUCCESS;
+
+     } else
+     {
+
+       DEBUG_ERROR(std::string("Notes file was closed. Note was not appended to the file."));
+       return FAILURE;
+
+     }
 }
 
 bool FileParser::status()

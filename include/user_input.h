@@ -6,6 +6,8 @@
 
 void getCharFromUser(char& c);
 
+void getNumFromUser(unsigned& num);
+
 char* getLineFromUser();
 
 #endif // USER_INPUT_H_INCLUDED
