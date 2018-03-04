@@ -1,0 +1,79 @@
+Kamilek@Binarek MINGW64 /d/kamil/programowanie/C++/cpp_note_maker/note_maker/build (master)
+$ ./app_runner.exe ../test_notes/test_notes_1.txt
+###############################
+#  Welcome to the note maker  #
+#  author: Kamil Kowalski     #
+#  version: 1.0               #
+###############################
+
+<<INFO>>: Following note file was chosen: ../test_notes/test_notes_1.txt
+    >>
+    >> d - display notes
+    >> a - add note
+    >> r - remove note
+    >> q - quit application
+    >>
+    >> Choose option : d
+################# LIST OF NOTES #################
+1. # Added on Sun Feb 25 11:52:47 2018: Remember to update github.
+2. # Added on Sun Feb 25 11:54:02 2018: Remember to do shopping in Bonarka.
+3. # Added on Sun Feb 25 11:54:21 2018: Prepare for tomorrow.
+4. # Added on Sat Mar 03 10:41:21 2018: Some random note.
+5. # Added on Sat Mar 03 11:17:37 2018: I need to read more of good stuff ASAP.
+6. # Added on Sat Mar 03 11:18:04 2018: Remember to clean up the work docs.
+7. # Added on Sat Mar 03 11:18:37 2018: Start looking for new job :)
+8. # Added on Sat Mar 03 11:18:56 2018: Update the Linkedin profile.
+9. # Added on Sun Mar 04 16:25:04 2018: Some random note
+#################################################
+    >>
+    >> d - display notes
+    >> a - add note
+    >> r - remove note
+    >> q - quit application
+    >>
+    >> Choose option : r
+32
+<<INFO>>: The number of notes exceeded!
+    >>
+    >> d - display notes
+    >> a - add note
+    >> r - remove note
+    >> q - quit application
+    >>
+    >> Choose option : r
+235453645764575685786563456
+    >> Value out of range. Give reasonable value : 45
+<<INFO>>: The number of notes exceeded!
+    >>
+    >> d - display notes
+    >> a - add note
+    >> r - remove note
+    >> q - quit application
+    >>
+    >> Choose option : g
+    >> Choose valid option : h
+    >> Choose valid option : j
+    >> Choose valid option : v
+    >> Choose valid option : b
+    >> Choose valid option : n
+    >> Choose valid option : m
+    >> Choose valid option : '
+    >> Choose valid option : d
+################# LIST OF NOTES #################
+1. # Added on Sun Feb 25 11:52:47 2018: Remember to update github.
+2. # Added on Sun Feb 25 11:54:02 2018: Remember to do shopping in Bonarka.
+3. # Added on Sun Feb 25 11:54:21 2018: Prepare for tomorrow.
+4. # Added on Sat Mar 03 10:41:21 2018: Some random note.
+5. # Added on Sat Mar 03 11:17:37 2018: I need to read more of good stuff ASAP.
+6. # Added on Sat Mar 03 11:18:04 2018: Remember to clean up the work docs.
+7. # Added on Sat Mar 03 11:18:37 2018: Start looking for new job :)
+8. # Added on Sat Mar 03 11:18:56 2018: Update the Linkedin profile.
+9. # Added on Sun Mar 04 16:25:04 2018: Some random note
+#################################################
+    >>
+    >> d - display notes
+    >> a - add note
+    >> r - remove note
+    >> q - quit application
+    >>
+    >> Choose option : q

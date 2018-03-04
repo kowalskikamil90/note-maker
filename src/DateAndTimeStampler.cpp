@@ -11,7 +11,7 @@ std::string DateAndTimeStampler::giveCurrentDateAndTimeStamp()
     * to have a date and time */
    std::string dateAndTime(ctime(&now));
 
-   /* Remove trailing newline char if exists */
+   // Remove trailing newline char if exists
    std::size_t found = dateAndTime.find('\n');
    if ( found != std::string::npos)
        dateAndTime.erase(found);

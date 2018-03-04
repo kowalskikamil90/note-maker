@@ -11,7 +11,7 @@ Note::Note(std::string content, bool readFromFile)
     if (readFromFile == true)
     {
 
-        /* In such case we need to extract various fields from the note */
+        // In such case we need to extract various fields from the note
         fullNote += content;
 
         DEBUG_INFO(std::string("Creating the Note object. Read from file: ") + content);
@@ -22,17 +22,18 @@ Note::Note(std::string content, bool readFromFile)
     else // In this case we need to add a time stamp to the note.
     {
         DEBUG_INFO(std::string("Creating the Note object. Read form user: "));
+
         //Get current date and time stamp
         dateAndTimeStamp += stampler.giveCurrentDateAndTimeStamp();
 
         DEBUG_INFO(std::string("dateAndTimeStamp: " + dateAndTimeStamp));
 
-        //Assign the actual content of the note
+        // Assign the actual content of the note
         this->content += content;
 
         DEBUG_INFO(std::string("content: " + content));
 
-        //Add date and time stamp and new line at the end of the string
+        // Add date and time stamp and new line at the end of the string
         fullNote = std::string("Added on ") +
                                dateAndTimeStamp +
                                ": " +

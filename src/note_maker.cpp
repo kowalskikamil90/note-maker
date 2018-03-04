@@ -22,8 +22,8 @@ int main(int argc, char** argv) {
         FileParser fileParser(notes_file.c_str());
         if (fileParser.status() == SUCCESS) {
 
-            //This is main loop in the program
-            //The user decides what he/she wants to do.
+            /* This is main loop in the program.
+             * The user decides what to do. */
             bool stopped = false;
             char userInput = '#';
 
@@ -37,32 +37,44 @@ int main(int argc, char** argv) {
                 displayToUserNewLine("");
                 displayToUser("Choose option : ");
 
-                getCharFromUser(userInput);
+                //Vector holding all valid user input
+                std::vector<char> validChars{'d', 'a', 'r', 'q'};
 
-                switch (userInput){
+                getCharFromUser(userInput, validChars);
+
+                switch (userInput)
+                {
 
                     case 'd':
                         fileParser.displayNotes();
                         break;
+
                     case 'a':
 
-                        if (fileParser.addNote() == SUCCESS) {
+                        if (fileParser.addNote() == SUCCESS)
+                        {
                             break;
-                        } else {
+                        }
+                        else
+                        {
                             return 1;
                         }
 
                     case 'r':
 
-                        if (fileParser.removeNote() == SUCCESS) {
+                        if (fileParser.removeNote() == SUCCESS)
+                        {
                             break;
-                        } else {
+                        }
+                        else
+                        {
                             return 1;
                         }
 
                     case 'q':
                         stopped = true;
                         break;
+
                     default:
                         notifyUserInfo(std::string("Invalid option was chosen."));
 
@@ -71,10 +83,12 @@ int main(int argc, char** argv) {
         }
     }
 
-    else {
+    else
+    {
 
         displayToUserNewLine("Please specify the NOTES file when running the program.");
         displayToUserNewLine("Exitting the application... ");
+
     }
 
     return 0;

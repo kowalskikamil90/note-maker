@@ -15,6 +15,7 @@ FileParser::FileParser(const char* filePath)
 {
   this->filePath += filePath;
   myfile.open(filePath, std::fstream::in | std::fstream::out);
+
   if (!myfile.is_open())
   {
     DEBUG_ERROR(std::string("Problems with opening the file: ") + filePath);
@@ -30,17 +31,20 @@ FileParser::FileParser(const char* filePath)
         getline(myfile, line);
 
         //Check if the start of string is either # or newline
-        if (*line.begin() == '#') {
+        if (*line.begin() == '#')
+        {
 
             DEBUG_INFO(std::string("Read a comment"));
 
         }
-        else if (line.empty()) {
+        else if (line.empty())
+        {
 
             DEBUG_INFO(std::string("Read empty line"));
 
         }
-        else {
+        else
+        {
 
             /* If the note is read from the file it means it already has
              * a time stamp, so we do not need to add it while constructing
@@ -57,16 +61,15 @@ FileParser::FileParser(const char* filePath)
     DEBUG_INFO_2(std::string("Number of NOTES after reading the file: "), nrOfNotes);
 
     /* After reading the whole file the EOF flag is set.
-       The stream will stop working until that flag is cleared. */
+     * The stream will stop working until that flag is cleared. */
     myfile.clear();
   }
 }
 
 FileParser::~FileParser()
 {
-    if (myfile.is_open()) {
-        myfile.close();
-    }
+    if (myfile.is_open())
+            myfile.close();
 
     notes.clear();
     nrOfNotes = 0;
@@ -92,12 +95,12 @@ bool FileParser::addNote()
     std::string line(input);
 
     /* If the note is read from the user it means it does not have
-     * a timestamp, so we need to add it while constructing
+     * a time stamp, so we need to add it while constructing
      * the Note object. */
     bool readFromFile = false;
     Note aNote(line, readFromFile);
 
-    // update notes vector
+    // Update notes vector.
     notes.push_back(aNote);
     nrOfNotes++;
     notifyUserInfo(std::string("The note has been added."));
@@ -108,7 +111,7 @@ bool FileParser::addNote()
 
     if (myfile.is_open())
     {
-        /* Need to open the file in trunc mode */
+        // Need to open the file in trunc mode.
         myfile.close();
         myfile.open(filePath, std::fstream::out | std::fstream::trunc);
         if (!myfile.is_open())
@@ -126,7 +129,8 @@ bool FileParser::addNote()
 
         }
 
-     } else
+     }
+     else
      {
 
        DEBUG_ERROR(std::string("Notes file was closed. Note was not appended to the file."));
@@ -141,7 +145,7 @@ bool FileParser::removeNote()
 {
     if (myfile.is_open())
     {
-        /* Need to open the file in trunc mode */
+        // Need to open the file in trunc mode
         myfile.close();
         myfile.open(filePath, std::fstream::out | std::fstream::trunc);
         if (!myfile.is_open())
@@ -171,13 +175,15 @@ bool FileParser::removeNote()
             }
 
         }
-        else {
+        else
+        {
             notifyUserInfo(std::string("The number of notes exceeded!"));
         }
 
         return SUCCESS;
 
-     } else
+     }
+     else
      {
 
        DEBUG_ERROR(std::string("Notes file was closed. Note was not appended to the file."));
