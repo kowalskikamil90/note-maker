@@ -6,7 +6,7 @@
 //This is max size of the note that the user may enter
 #define INPUT_SIZE 200
 
-void getCharFromUser(char& c, std::vector<char>& validChars);
+void getCharFromUser(char& c, const std::vector<char> &validChars);
 
 void getNumFromUser(unsigned& num);
 

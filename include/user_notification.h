@@ -5,15 +5,15 @@
 
 void printWelcomeMessage();
 
-void notifyUserInfo(std::string message);
+void notifyUserInfo(const std::string &message);
 
-void displayToUser(std::string message);
+void displayToUser(const std::string &message);
 
-void displayDataToUserNewLine(std::string message);
+void displayDataToUserNewLine(const std::string &message);
 
-void displayToUserNewLine(std::string message);
+void displayToUserNewLine(const std::string &message);
 
-void displayTitleWithBorder(std::string title);
+void displayTitleWithBorder(const std::string &title);
 
 void displayListNumber(unsigned number);
 

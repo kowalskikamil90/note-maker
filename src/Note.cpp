@@ -6,17 +6,16 @@
  * effect on the code itself. */
 #include <trace_debug.h>
 
-Note::Note(std::string content, bool readFromFile)
+Note::Note(const std::string& content, bool readFromFile)
 {
     if (readFromFile == true)
     {
-
-        // In such case we need to extract various fields from the note
-        fullNote += content;
+        /* In such case we only need to assign fullNote.
+         * There is no need to extract other fields from
+         * note's content. */
+        fullNote.assign(content);
 
         DEBUG_INFO(std::string("Creating the Note object. Read from file: ") + content);
-
-        //TODO: extract all necessary fields
 
     }
     else // In this case we need to add a time stamp to the note.
@@ -24,12 +23,12 @@ Note::Note(std::string content, bool readFromFile)
         DEBUG_INFO(std::string("Creating the Note object. Read form user: "));
 
         //Get current date and time stamp
-        dateAndTimeStamp += stampler.giveCurrentDateAndTimeStamp();
+        dateAndTimeStamp = stampler.giveCurrentDateAndTimeStamp();
 
         DEBUG_INFO(std::string("dateAndTimeStamp: " + dateAndTimeStamp));
 
         // Assign the actual content of the note
-        this->content += content;
+        this->content.assign(content);
 
         DEBUG_INFO(std::string("content: " + content));
 
@@ -53,7 +52,7 @@ Note::Note(std::string content, bool readFromFile)
     }
 }
 
-std::string Note::toString()
+const std::string& Note::toString() const
 {
     return this->fullNote;
 }

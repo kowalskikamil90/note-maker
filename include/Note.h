@@ -7,8 +7,8 @@
 class Note
 {
     public:
-        Note(std::string content, bool readFromFile);
-        std::string toString();
+        Note(const std::string& content, bool readFromFile);
+        const std::string& toString() const;
 
     private:
         DateAndTimeStampler stampler;

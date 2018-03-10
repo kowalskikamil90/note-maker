@@ -11,27 +11,27 @@ void printWelcomeMessage()
     std::cout << "###############################" << std::endl << std::endl;
 }
 
-void notifyUserInfo(std::string message)
+void notifyUserInfo(const std::string &message)
 {
     std::cout << "<<INFO>>: " << message << std::endl;
 }
 
-void displayToUserNewLine(std::string message)
+void displayToUserNewLine(const std::string &message)
 {
     std::cout << "    >> " << message << std::endl;
 }
 
-void displayToUser(std::string message)
+void displayToUser(const std::string &message)
 {
     std::cout << "    >> " << message;
 }
 
-void displayDataToUserNewLine(std::string message)
+void displayDataToUserNewLine(const std::string &message)
 {
     std::cout << "# " << message << std::endl;
 }
 
-void displayTitleWithBorder(std::string title)
+void displayTitleWithBorder(const std::string &title)
 {
     std::cout << "################# " << title << " #################";
     std::cout << std::endl;

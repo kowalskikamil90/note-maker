@@ -12,8 +12,8 @@
 #include <trace_debug.h>
 
 FileParser::FileParser(const char* filePath)
+:filePath(filePath), nrOfNotes(0)
 {
-  this->filePath += filePath;
   myfile.open(filePath, std::fstream::in | std::fstream::out);
 
   if (!myfile.is_open())
@@ -25,7 +25,6 @@ FileParser::FileParser(const char* filePath)
 
     DEBUG_INFO(std::string("File opened successfully: ") + filePath);
 
-    nrOfNotes = 0;
     while (myfile) {
         std::string line;
         getline(myfile, line);
@@ -71,17 +70,14 @@ FileParser::~FileParser()
     if (myfile.is_open())
             myfile.close();
 
-    notes.clear();
-    nrOfNotes = 0;
-    filePath = "";
 }
 
-void FileParser::displayNotes()
+void FileParser::displayNotes() const
 {
     std::string title("LIST OF NOTES");
     displayTitleWithBorder(title);
     unsigned noteNum = 1;
-    for(auto it = notes.begin(); it != notes.end(); ++it) {
+    for(auto it = notes.cbegin(); it != notes.cend(); ++it) {
         displayListNumber(noteNum++);
         displayDataToUserNewLine(it->toString());
     }
@@ -192,7 +188,7 @@ bool FileParser::removeNote()
      }
 }
 
-bool FileParser::status()
+bool FileParser::status() const
 {
     return myfile.is_open() ? SUCCESS: FAILURE;
 }

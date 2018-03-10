@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
                 displayToUser("Choose option : ");
 
                 //Vector holding all valid user input
-                std::vector<char> validChars{'d', 'a', 'r', 'q'};
+                const std::vector<char> validChars{'d', 'a', 'r', 'q'};
 
                 getCharFromUser(userInput, validChars);
 
